@@ -20,7 +20,7 @@ interface IAggregator {
 
 contract MockComptroller {
     mapping(address => address) public assetToOracle;
-    address public defaultOracle; // 추가된 필드
+    address public defaultOracle; 
 
     function setOracle(address asset, address oracle) external {
         assetToOracle[asset] = oracle;
@@ -36,7 +36,6 @@ contract MockComptroller {
         return uint256(price);
     }
 
-    // 추가된 함수
     function oracle() external view returns (address) {
         return defaultOracle;
     }

@@ -8,7 +8,7 @@ contract DeployBNBMockOracle is Script {
     function run() external {
         vm.startBroadcast();    
 
-        // 초기 가격 1000 USD, decimals = 8 기준 (Chainlink 스타일)
+        // 초기 가격 1000 USD, decimals = 8 기준 (Chainlink 스타일) - 일단 전부 통일
         BNBMockOracle oracle = new BNBMockOracle(1_000_00000000); // 1000 * 1e8
 
         vm.stopBroadcast();
