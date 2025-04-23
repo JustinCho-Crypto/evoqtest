@@ -36,6 +36,17 @@ deploy-testnet:
 deploy-mainnet:
 	forge script script/DeployMainnet.s.sol:Deploy --rpc-url ${MAINNET_RPC_URL} --private-key ${MAINNET_PRIV_KEY} --broadcast --force -vvv
 
+# deploy mock oracle
+deploy-mockoracle:
+	forge script script/DeployMockOracle.s.sol:DeployBTCBMockOracle --rpc-url ${TESTNET_RPC_URL} --private-key ${TESTNET_PRIV_KEY} --broadcast --force -vvv
+	forge script script/DeployMockOracle.s.sol:DeployBNBMockOracle --rpc-url ${TESTNET_RPC_URL} --private-key ${TESTNET_PRIV_KEY} --broadcast --force -vvv
+	forge script script/DeployMockOracle.s.sol:DeployUSDCMockOracle --rpc-url ${TESTNET_RPC_URL} --private-key ${TESTNET_PRIV_KEY} --broadcast --force -vvv
+	forge script script/DeployMockOracle.s.sol:DeployUSDTMockOracle --rpc-url ${TESTNET_RPC_URL} --private-key ${TESTNET_PRIV_KEY} --broadcast --force -vvv
+
+
+deploy-mockcomptroller:
+	forge script script/DeployMockComptroller.s.sol:DeployMockComptroller --rpc-url ${TESTNET_RPC_URL} --private-key ${TESTNET_PRIV_KEY} --broadcast --force -vvv
+
 verify-contracts:
 	./script/verify.sh
 

@@ -11,6 +11,11 @@ contract Evoq is EvoqGovernance {
     using SafeTransferLib for ERC20;
     using DelegateCall for address;
 
+    function initialize() external initializer {
+        __Ownable_init(msg.sender);
+        __ReentrancyGuard_init();
+    }
+
     /// EVENTS ///
 
     /// @notice Emitted when a user claims rewards.
